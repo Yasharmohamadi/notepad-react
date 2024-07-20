@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import NoteApp from './components/NoteApp/NoteApp'
 
 
 // FIRST WAY TO USE REACT
@@ -13,6 +14,8 @@ import './index.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.Fragment>
+
+        <NoteApp />
 
     </React.Fragment>
 );
