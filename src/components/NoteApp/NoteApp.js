@@ -22,10 +22,16 @@ export default class NoteApp extends React.Component {
 		};
 	}
 
-    changeInputBackground (color) {
-        console.log(color);
+	changeInputBackground(color) {
+		this.setState({
+			colorBox: color,
+		});
+	}
+
+    noteTitleHnadler (event) {
+
         this.setState({
-            colorBox: color
+            noteTitle: event.target.value
         })
     }
 
@@ -39,7 +45,9 @@ export default class NoteApp extends React.Component {
 							placeholder="Type Note here..."
 							type="text"
 							id="input"
-                            style={{background: this.state.colorBox}}
+							style={{ background: this.state.colorBox }}
+                            onChange={this.noteTitleHnadler.bind(this)}
+                            value={this.state.value}
 						></input>
 						<button className="input_btn" id="add_btn">
 							a
@@ -77,12 +85,14 @@ export default class NoteApp extends React.Component {
 						</button>
 					</div>
 					<div id="colors">
-
-
-					{this.state.colors.map((color) => (
-						<ColorBox key={color} colors={color} onColor={this.changeInputBackground.bind(this, color)}/>
-					))}
-                    </div>
+						{this.state.colors.map((color) => (
+							<ColorBox
+								key={color}
+								colors={color}
+								onColor={this.changeInputBackground.bind(this, color)}
+							/>
+						))}
+					</div>
 					<div className="section_boxes"></div>
 				</div>
 			</div>
