@@ -22,7 +22,12 @@ export default class NoteApp extends React.Component {
 		};
 	}
 
-
+    changeInputBackground (color) {
+        console.log(color);
+        this.setState({
+            colorBox: color
+        })
+    }
 
 	render() {
 		return (
@@ -75,7 +80,7 @@ export default class NoteApp extends React.Component {
 
 
 					{this.state.colors.map((color) => (
-						<ColorBox key={color} colors={color} />
+						<ColorBox key={color} colors={color} onColor={this.changeInputBackground.bind(this, color)}/>
 					))}
                     </div>
 					<div className="section_boxes"></div>

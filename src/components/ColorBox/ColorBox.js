@@ -5,12 +5,14 @@ export default class ColorBox extends React.Component {
 		super(props);
 	}
 
-
+    clickOnBox (color) {
+        this.props.onColor(color)
+    }
 
 	render() {
         let color = this.props.colors
 		return (
-			<div  className="color" style={{ background: color}}></div>
+			<div onClick={this.clickOnBox.bind(this, color)} className="color" style={{ background: color}}></div>
 		);
 	}
 }
