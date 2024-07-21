@@ -121,7 +121,7 @@ export default class NoteApp extends React.Component {
 					</div>
 					<div className="section_boxes">
 						{this.state.notes.map((note) => (
-							<Note note={note} onDelete={this.removeNote.bind(this)} />
+							<Note key={note.id} note={note} onDelete={this.removeNote.bind(this)} />
 						))}
 					</div>
 				</div>
