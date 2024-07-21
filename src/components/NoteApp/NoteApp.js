@@ -1,6 +1,8 @@
 import React from "react";
 import "./NoteApp.css";
 import ColorBox from "../ColorBox/ColorBox";
+import Note from "../Note/Note";
+
 
 export default class NoteApp extends React.Component {
 	constructor(props) {
@@ -16,7 +18,7 @@ export default class NoteApp extends React.Component {
 				"#F8BBD0",
 				"#E1BEE7",
 			],
-			note: [],
+			notes: [],
 			noteTitle: "",
 			colorBox: "#fff",
 		};
@@ -36,12 +38,12 @@ export default class NoteApp extends React.Component {
 
 	addNoteHandler() {
 		let newNote = {
-			id: this.state.note.length + 1,
+			id: this.state.notes.length + 1,
 			title: this.state.noteTitle,
 			color: this.state.colorBox,
 		};
 		this.setState({
-			note: [...this.state.note, newNote],
+			notes: [...this.state.notes, newNote],
 			noteTitle: "",
 		});
 	}
@@ -109,8 +111,9 @@ export default class NoteApp extends React.Component {
 						))}
 					</div>
 					<div className="section_boxes">
-
-						
+						{this.state.notes.map(note => (
+							<Note note={note} />
+						))}
 					</div>
 				</div>
 			</div>

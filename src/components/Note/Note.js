@@ -7,8 +7,8 @@ export default class Note extends React.Component {
 
 	render() {
 		return (
-			<div className="box">
-				<p className="box_text">{this.props.title}</p>
+			<div className="box" style={{background: this.props.note.color}}>
+				<p className="box_text">{this.props.note.title}</p>
 			</div>
 		);
 	}
