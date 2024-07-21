@@ -35,6 +35,17 @@ export default class NoteApp extends React.Component {
         })
     }
 
+	addNoteHandler() {
+		let newNote = {
+			id: this.state.note.length + 1,
+			title: this.state.noteTitle,
+			color: this.state.colorBox
+		}
+		this.setState({
+			note: [...this.state.note, newNote]
+		})
+	}
+
 	render() {
 		return (
 			<div id="countainer">
@@ -49,7 +60,7 @@ export default class NoteApp extends React.Component {
                             onChange={this.noteTitleHnadler.bind(this)}
                             value={this.state.value}
 						></input>
-						<button className="input_btn" id="add_btn">
+						<button className="input_btn" id="add_btn" onClick={this.addNoteHandler.bind(this)}>
 							a
 							{/* <svg
 								xmlns="http://www.w3.org/2000/svg"
