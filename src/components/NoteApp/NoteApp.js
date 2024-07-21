@@ -3,7 +3,6 @@ import "./NoteApp.css";
 import ColorBox from "../ColorBox/ColorBox";
 import Note from "../Note/Note";
 
-
 export default class NoteApp extends React.Component {
 	constructor(props) {
 		super(props);
@@ -45,6 +44,16 @@ export default class NoteApp extends React.Component {
 		this.setState({
 			notes: [...this.state.notes, newNote],
 			noteTitle: "",
+		});
+	}
+
+	removeNote(id) {
+		let filteredNotes = this.state.notes.filter((note) => {
+			return note.id !== id;
+		});
+
+		this.setState({
+			notes: filteredNotes,
 		});
 	}
 
@@ -111,8 +120,8 @@ export default class NoteApp extends React.Component {
 						))}
 					</div>
 					<div className="section_boxes">
-						{this.state.notes.map(note => (
-							<Note note={note} />
+						{this.state.notes.map((note) => (
+							<Note note={note} onDelete={this.removeNote.bind(this)} />
 						))}
 					</div>
 				</div>
