@@ -108,7 +108,10 @@ export default class NoteApp extends React.Component {
 							/>
 						))}
 					</div>
-					<div className="section_boxes"></div>
+					<div className="section_boxes">
+
+						
+					</div>
 				</div>
 			</div>
 		);
