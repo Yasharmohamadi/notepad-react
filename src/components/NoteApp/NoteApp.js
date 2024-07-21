@@ -28,22 +28,22 @@ export default class NoteApp extends React.Component {
 		});
 	}
 
-    noteTitleHnadler (event) {
-
-        this.setState({
-            noteTitle: event.target.value
-        })
-    }
+	noteTitleHnadler(event) {
+		this.setState({
+			noteTitle: event.target.value,
+		});
+	}
 
 	addNoteHandler() {
 		let newNote = {
 			id: this.state.note.length + 1,
 			title: this.state.noteTitle,
-			color: this.state.colorBox
-		}
+			color: this.state.colorBox,
+		};
 		this.setState({
-			note: [...this.state.note, newNote]
-		})
+			note: [...this.state.note, newNote],
+			noteTitle: "",
+		});
 	}
 
 	render() {
@@ -57,10 +57,14 @@ export default class NoteApp extends React.Component {
 							type="text"
 							id="input"
 							style={{ background: this.state.colorBox }}
-                            onChange={this.noteTitleHnadler.bind(this)}
-                            value={this.state.value}
+							onChange={this.noteTitleHnadler.bind(this)}
+							value={this.state.noteTitle}
 						></input>
-						<button className="input_btn" id="add_btn" onClick={this.addNoteHandler.bind(this)}>
+						<button
+							className="input_btn"
+							id="add_btn"
+							onClick={this.addNoteHandler.bind(this)}
+						>
 							a
 							{/* <svg
 								xmlns="http://www.w3.org/2000/svg"
